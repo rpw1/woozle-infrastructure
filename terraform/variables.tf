@@ -16,3 +16,7 @@ variable "resource_group_name" {
 variable "subscription_id" {
   type = string
 }
+
+variable "keyvault_name" {
+  type = string
+}

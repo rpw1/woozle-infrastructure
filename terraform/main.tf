@@ -20,6 +20,12 @@ resource "azurerm_linux_web_app" "woozle_web" {
 
   site_config {
     always_on = false
+    application_stack {
+      docker_image_name = "ghcr.io/env.REPO:github.sha"
+      docker_registry_url = local.web_settings.DOCKER_REGISTRY_SERVER_URL
+      docker_registry_username = local.web_settings.DOCKER_REGISTRY_SERVER_USERNAME
+      docker_registry_password = local.web_settings.DOCKER_REGISTRY_SERVER_PASSWORD
+    }
   }
 
   logs {
